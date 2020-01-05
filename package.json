@@ -3,6 +3,12 @@
 	"displayName": "module-name-helper",
 	"description": "",
 	"version": "0.0.1",
+	"publisher": "marcinkowal2015",
+	"author": {
+		"name": "Marcin Kowal",
+		"email": "marcinkowal2015@outlook.com",
+		"url": "https://marcinkowal.dev"
+	},
 	"engines": {
 		"vscode": "^1.41.0"
 	},
@@ -19,7 +25,16 @@
 				"command": "extension.showModuleName",
 				"title": "Show module name"
 			}
-		]
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "extension.showModuleName",
+					"group": "showModuleNameGroup",
+					"when": "editorTextFocus "
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -38,5 +53,8 @@
 		"typescript": "^3.6.4",
 		"tslint": "^5.20.0",
 		"vscode-test": "^1.2.2"
+	},
+	"dependencies": {
+		"module-name-resolver": "0.0.3"
 	}
 }
