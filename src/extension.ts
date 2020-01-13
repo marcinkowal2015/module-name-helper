@@ -21,12 +21,25 @@ export function activate(context: vscode.ExtensionContext) {
 		try {
 			vscode.window.showInformationMessage(getModuleName(vscode.window.activeTextEditor?.document.fileName?.toString() ?? ""));
 		} catch {
-			vscode.window.showInformationMessage("Cannot resolve module name of this file");
+			vscode.window.showErrorMessage("Cannot resolve module name of this file");
+		}
+		
+	});
+
+	const disposable2 = vscode.commands.registerCommand('extension.copyModuleName', () => {
+		// The code you place here will be executed every time your command is executed
+
+		// Display a message box to the user
+		try {
+			vscode.env.clipboard.writeText(getModuleName(vscode.window.activeTextEditor?.document.fileName?.toString() ?? ""));
+		} catch {
+			vscode.window.showErrorMessage("Cannot resolve module name of this file");
 		}
 		
 	});
  
 	context.subscriptions.push(disposable);
+	context.subscriptions.push(disposable2);
 }
 
 // this method is called when your extension is deactivated

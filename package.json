@@ -24,12 +24,21 @@
 			{
 				"command": "extension.showModuleName",
 				"title": "Show module name"
+			},
+			{
+				"command": "extension.copyModuleName",
+				"title": "Copy module name"
 			}
 		],
 		"menus": {
 			"editor/context": [
 				{
 					"command": "extension.showModuleName",
+					"group": "showModuleNameGroup",
+					"when": "editorTextFocus "
+				},
+				{
+					"command": "extension.copyModuleName",
 					"group": "showModuleNameGroup",
 					"when": "editorTextFocus "
 				}
